@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍎 水果消消乐</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- 顶部信息栏 -->
+        <div class="header">
+            <div class="level-info">
+                <span class="label">关卡</span>
+                <span class="value" id="level">1</span>
+            </div>
+            <div class="score-info">
+                <div class="target">
+                    <span class="label">目标</span>
+                    <span class="value" id="target">1000</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="current-score">
+                    <span class="label">当前</span>
+                    <span class="value" id="score">0</span>
+                </div>
+            </div>
+            <div class="moves-info">
+                <span class="label">剩余步数</span>
+                <span class="value" id="moves">30</span>
+            </div>
+        </div>
+
+        <!-- 游戏棋盘 -->
+        <div class="game-board" id="gameBoard"></div>
+
+        <!-- 游戏状态提示 -->
+        <div class="combo-display" id="comboDisplay"></div>
+
+        <!-- 游戏结束弹窗 -->
+        <div class="modal" id="gameModal">
+            <div class="modal-content">
+                <h2 id="modalTitle">游戏结束</h2>
+                <p id="modalMessage"></p>
+                <div class="stars" id="stars"></div>
+                <div class="modal-buttons">
+                    <button class="btn btn-retry" onclick="game.restart()">重玩本关</button>
+                    <button class="btn btn-next" id="nextBtn" onclick="game.nextLevel()" style="display:none;">下一关</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 重新开始按钮 -->
+        <button class="restart-btn" onclick="game.restart()">🔄</button>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
